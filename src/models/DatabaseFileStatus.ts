@@ -27,6 +27,13 @@ import {
     DateRangeStatusToJSON,
     DateRangeStatusToJSONTyped,
 } from './DateRangeStatus';
+import type { ThreatFeedStatus } from './ThreatFeedStatus';
+import {
+    ThreatFeedStatusFromJSON,
+    ThreatFeedStatusFromJSONTyped,
+    ThreatFeedStatusToJSON,
+    ThreatFeedStatusToJSONTyped,
+} from './ThreatFeedStatus';
 import type { DatabaseUpdates } from './DatabaseUpdates';
 import {
     DatabaseUpdatesFromJSON,
@@ -74,6 +81,12 @@ export interface DatabaseFileStatus {
     dropped_with_backlinks?: DateRangeStatus;
     /**
      * 
+     * @type {ThreatFeedStatus}
+     * @memberof DatabaseFileStatus
+     */
+    threat_feed?: ThreatFeedStatus;
+    /**
+     * 
      * @type {DatabaseUpdates}
      * @memberof DatabaseFileStatus
      */
@@ -103,6 +116,7 @@ export function DatabaseFileStatusFromJSONTyped(json: any, ignoreDiscriminator: 
         'cleaned_expired': json['cleaned_expired'] == null ? undefined : DateRangeStatusFromJSON(json['cleaned_expired']),
         'dropped': json['dropped'] == null ? undefined : DateRangeStatusFromJSON(json['dropped']),
         'dropped_with_backlinks': json['dropped_with_backlinks'] == null ? undefined : DateRangeStatusFromJSON(json['dropped_with_backlinks']),
+        'threat_feed': json['threat_feed'] == null ? undefined : ThreatFeedStatusFromJSON(json['threat_feed']),
         'database_updates': json['database_updates'] == null ? undefined : DatabaseUpdatesFromJSON(json['database_updates']),
     };
 }
@@ -124,6 +138,7 @@ export function DatabaseFileStatusToJSONTyped(value?: DatabaseFileStatus | null,
         'cleaned_expired': DateRangeStatusToJSON(value['cleaned_expired']),
         'dropped': DateRangeStatusToJSON(value['dropped']),
         'dropped_with_backlinks': DateRangeStatusToJSON(value['dropped_with_backlinks']),
+        'threat_feed': ThreatFeedStatusToJSON(value['threat_feed']),
         'database_updates': DatabaseUpdatesToJSON(value['database_updates']),
     };
 }

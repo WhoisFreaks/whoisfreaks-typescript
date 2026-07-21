@@ -69,6 +69,7 @@ export * from './SslResponse';
 export * from './SslUnitInfo';
 export * from './Subdomain';
 export * from './SubdomainsResponse';
+export * from './ThreatFeedStatus';
 export * from './ThreatSource';
 export * from './TrustSignals';
 export * from './TyposquattingDomain';

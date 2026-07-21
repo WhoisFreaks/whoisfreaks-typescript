@@ -129,7 +129,7 @@ export class AccountApi extends runtime.BaseAPI implements AccountApiInterface {
         const headerParameters: runtime.HTTPHeaders = {};
 
         const response = await this.request({
-            path: `/v3.3/status`,
+            path: `/v3.4/status`,
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,

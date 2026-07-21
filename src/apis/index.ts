@@ -11,6 +11,7 @@ export * from './DatabasesIPSecurityApi';
 export * from './DatabasesIPWHOISApi';
 export * from './DatabasesNewlyRegisteredApi';
 export * from './DatabasesSubdomainsApi';
+export * from './DatabasesThreatFeedApi';
 export * from './DatabasesWHOISApi';
 export * from './DomainAvailabilityApi';
 export * from './DomainReputationApi';
