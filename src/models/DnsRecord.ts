@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * WhoisFreaks API
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -21,11 +21,17 @@ import { mapValues } from '../runtime';
 export interface DnsRecord {
     [key: string]: any | any;
     /**
-     * 
+     * Numeric DNS record type: 1 A, 2 NS, 5 CNAME, 6 SOA, 12 PTR, 15 MX, 16 TXT, 28 AAAA, 99 SPF.
+     * @type {number}
+     * @memberof DnsRecord
+     */
+    type?: number;
+    /**
+     * Record type name, e.g. A, MX, TXT
      * @type {string}
      * @memberof DnsRecord
      */
-    type?: string;
+    dnsType?: string;
     /**
      * 
      * @type {string}
@@ -38,6 +44,24 @@ export interface DnsRecord {
      * @memberof DnsRecord
      */
     ttl?: number;
+    /**
+     * The record in zone-file format
+     * @type {string}
+     * @memberof DnsRecord
+     */
+    rawText?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof DnsRecord
+     */
+    rRsetType?: number;
+    /**
+     * Target host for NS, CNAME and PTR records
+     * @type {string}
+     * @memberof DnsRecord
+     */
+    singleName?: string;
     /**
      * 
      * @type {string}
@@ -81,7 +105,7 @@ export interface DnsRecord {
      */
     admin?: string;
     /**
-     * 
+     * SOA serial; values above 2^31 are common, so it is 64-bit
      * @type {number}
      * @memberof DnsRecord
      */
@@ -131,8 +155,12 @@ export function DnsRecordFromJSONTyped(json: any, ignoreDiscriminator: boolean):
         
             ...json,
         'type': json['type'] == null ? undefined : json['type'],
+        'dnsType': json['dnsType'] == null ? undefined : json['dnsType'],
         'name': json['name'] == null ? undefined : json['name'],
         'ttl': json['ttl'] == null ? undefined : json['ttl'],
+        'rawText': json['rawText'] == null ? undefined : json['rawText'],
+        'rRsetType': json['rRsetType'] == null ? undefined : json['rRsetType'],
+        'singleName': json['singleName'] == null ? undefined : json['singleName'],
         'address': json['address'] == null ? undefined : json['address'],
         'priority': json['priority'] == null ? undefined : json['priority'],
         'exchange': json['exchange'] == null ? undefined : json['exchange'],
@@ -161,8 +189,12 @@ export function DnsRecordToJSONTyped(value?: DnsRecord | null, ignoreDiscriminat
         
             ...value,
         'type': value['type'],
+        'dnsType': value['dnsType'],
         'name': value['name'],
         'ttl': value['ttl'],
+        'rawText': value['rawText'],
+        'rRsetType': value['rRsetType'],
+        'singleName': value['singleName'],
         'address': value['address'],
         'priority': value['priority'],
         'exchange': value['exchange'],

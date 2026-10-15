@@ -1,11 +1,11 @@
 {
   "name": "whoisfreaks",
-  "version": "0.21.0",
-  "description": "OpenAPI client for whoisfreaks",
-  "author": "OpenAPI-Generator",
+  "version": "0.23.2",
+  "description": "TypeScript WHOIS API client with types: live, historical, reverse and bulk WHOIS, DNS lookup, domain availability, typosquatting",
+  "author": "WhoisFreaks <support@whoisfreaks.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/WhoisFreaks/wf-sdks.git"
+    "url": "git+https://github.com/WhoisFreaks/whoisfreaks-typescript.git"
   },
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
@@ -18,8 +18,23 @@
   "devDependencies": {
     "typescript": "^4.0 || ^5.0"
   },
-  "homepage": "https://github.com/WhoisFreaks/wf-sdks",
+  "keywords": [
+    "whois",
+    "whois-api",
+    "whois-lookup",
+    "rdap",
+    "dns-lookup",
+    "domain-availability",
+    "typosquatting",
+    "reverse-whois",
+    "typescript"
+  ],
+  "license": "MIT",
+  "homepage": "https://whoisfreaks.com/products/whois-api",
   "bugs": {
-    "url": "https://github.com/WhoisFreaks/wf-sdks/issues"
+    "url": "https://github.com/WhoisFreaks/whoisfreaks-typescript/issues"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

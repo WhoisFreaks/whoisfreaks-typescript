@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * WhoisFreaks API
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -60,7 +60,7 @@ export interface IPReputationApiInterface {
     bulkIpReputation(requestParameters: BulkIpReputationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<IpReputationResponse>>;
 
     /**
-     * Threat intel for IP — VPN, proxy, Tor, bots. 1 credit.
+     * Threat intel for IP: VPN, proxy, Tor, bots. 1 credit.
      * @summary IP Reputation Lookup
      * @param {string} ip 
      * @param {*} [options] Override http request option.
@@ -70,7 +70,7 @@ export interface IPReputationApiInterface {
     ipReputationRaw(requestParameters: IpReputationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IpReputationResponse>>;
 
     /**
-     * Threat intel for IP — VPN, proxy, Tor, bots. 1 credit.
+     * Threat intel for IP: VPN, proxy, Tor, bots. 1 credit.
      * IP Reputation Lookup
      */
     ipReputation(requestParameters: IpReputationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IpReputationResponse>;
@@ -125,7 +125,7 @@ export class IPReputationApi extends runtime.BaseAPI implements IPReputationApiI
     }
 
     /**
-     * Threat intel for IP — VPN, proxy, Tor, bots. 1 credit.
+     * Threat intel for IP: VPN, proxy, Tor, bots. 1 credit.
      * IP Reputation Lookup
      */
     async ipReputationRaw(requestParameters: IpReputationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<IpReputationResponse>> {
@@ -159,7 +159,7 @@ export class IPReputationApi extends runtime.BaseAPI implements IPReputationApiI
     }
 
     /**
-     * Threat intel for IP — VPN, proxy, Tor, bots. 1 credit.
+     * Threat intel for IP: VPN, proxy, Tor, bots. 1 credit.
      * IP Reputation Lookup
      */
     async ipReputation(requestParameters: IpReputationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<IpReputationResponse> {

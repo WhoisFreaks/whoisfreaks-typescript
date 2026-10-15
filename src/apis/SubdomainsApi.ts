@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * WhoisFreaks API
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -88,11 +88,11 @@ export class SubdomainsApi extends runtime.BaseAPI implements SubdomainsApiInter
         }
 
         if (requestParameters['after'] != null) {
-            queryParameters['after'] = (requestParameters['after'] as any).toISOString().substring(0,10);
+            queryParameters['after'] = requestParameters['after'] instanceof Date ? (requestParameters['after'] as any).toISOString().substring(0,10) : requestParameters['after'];
         }
 
         if (requestParameters['before'] != null) {
-            queryParameters['before'] = (requestParameters['before'] as any).toISOString().substring(0,10);
+            queryParameters['before'] = requestParameters['before'] instanceof Date ? (requestParameters['before'] as any).toISOString().substring(0,10) : requestParameters['before'];
         }
 
         if (requestParameters['status'] != null) {

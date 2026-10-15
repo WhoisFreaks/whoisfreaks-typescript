@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * WhoisFreaks API
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -89,7 +89,7 @@ export class DatabasesASNWHOISApi extends runtime.BaseAPI implements DatabasesAS
         const queryParameters: any = {};
 
         if (requestParameters['date'] != null) {
-            queryParameters['date'] = (requestParameters['date'] as any).toISOString().substring(0,10);
+            queryParameters['date'] = requestParameters['date'] instanceof Date ? (requestParameters['date'] as any).toISOString().substring(0,10) : requestParameters['date'];
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -103,6 +103,7 @@ export class DatabasesASNWHOISApi extends runtime.BaseAPI implements DatabasesAS
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
+            basePath: 'https://files.whoisfreaks.com',
         }, initOverrides);
 
         return new runtime.BlobApiResponse(response);
@@ -135,6 +136,7 @@ export class DatabasesASNWHOISApi extends runtime.BaseAPI implements DatabasesAS
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
+            basePath: 'https://files.whoisfreaks.com',
         }, initOverrides);
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SnapshotStatusFromJSON(jsonValue));

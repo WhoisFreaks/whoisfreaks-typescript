@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * WhoisFreaks API
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -37,6 +37,11 @@ export class Configuration {
 
     get basePath(): string {
         return this.configuration.basePath != null ? this.configuration.basePath : BASE_PATH;
+    }
+
+    // WhoisFreaks: true when the caller set basePath, which then overrides per-operation servers.
+    get hasExplicitBasePath(): boolean {
+        return this.configuration.basePath != null;
     }
 
     get fetchApi(): FetchAPI | undefined {
@@ -141,7 +146,11 @@ export class BaseAPI {
     }
 
     private async createFetchParams(context: RequestOpts, initOverrides?: RequestInit | InitOverrideFunction) {
-        let url = this.configuration.basePath + context.path;
+        // WhoisFreaks: an operation's own server (context.basePath) applies unless basePath was set explicitly.
+        const basePath = context.basePath != null && !this.configuration.hasExplicitBasePath
+            ? context.basePath
+            : this.configuration.basePath;
+        let url = basePath + context.path;
         if (context.query !== undefined && Object.keys(context.query).length !== 0) {
             // only add the querystring to the URL if there are query parameters.
             // this is done to avoid urls ending with a "?" character which buggy webservers
@@ -303,6 +312,7 @@ export interface FetchParams {
 }
 
 export interface RequestOpts {
+    basePath?: string; // WhoisFreaks: the operation's own server from the spec, if it has one
     path: string;
     method: HTTPMethod;
     headers: HTTPHeaders;

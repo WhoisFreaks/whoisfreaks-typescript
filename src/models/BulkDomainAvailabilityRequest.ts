@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * WhoisFreaks API
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -21,13 +21,13 @@ import { mapValues } from '../runtime';
 export interface BulkDomainAvailabilityRequest {
     [key: string]: any | any;
     /**
-     * Mode 1 — list of full domain names. Cannot be used with tld.
+     * Mode 1: list of full domain names. Cannot be used with tld.
      * @type {Array<string>}
      * @memberof BulkDomainAvailabilityRequest
      */
     domainNames?: Array<string>;
     /**
-     * Mode 2 — TLDs to check against the domain query param. Cannot be used with domainNames.
+     * Mode 2: TLDs to check against the domain query param. Cannot be used with domainNames.
      * @type {Array<string>}
      * @memberof BulkDomainAvailabilityRequest
      */

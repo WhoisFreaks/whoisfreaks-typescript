@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * WhoisFreaks API
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -89,11 +89,11 @@ export interface RegistryData {
      */
     domain_status?: Array<string>;
     /**
-     * 
+     * Raw registry WHOIS text (field name spelled as the API returns it)
      * @type {string}
      * @memberof RegistryData
      */
-    whois_raw_domain?: string;
+    whois_raw_registery?: string;
 }
 
 /**
@@ -124,7 +124,7 @@ export function RegistryDataFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'domain_registrar': json['domain_registrar'] == null ? undefined : RegistrarInformationFromJSON(json['domain_registrar']),
         'name_servers': json['name_servers'] == null ? undefined : json['name_servers'],
         'domain_status': json['domain_status'] == null ? undefined : json['domain_status'],
-        'whois_raw_domain': json['whois_raw_domain'] == null ? undefined : json['whois_raw_domain'],
+        'whois_raw_registery': json['whois_raw_registery'] == null ? undefined : json['whois_raw_registery'],
     };
 }
 
@@ -150,7 +150,7 @@ export function RegistryDataToJSONTyped(value?: RegistryData | null, ignoreDiscr
         'domain_registrar': RegistrarInformationToJSON(value['domain_registrar']),
         'name_servers': value['name_servers'],
         'domain_status': value['domain_status'],
-        'whois_raw_domain': value['whois_raw_domain'],
+        'whois_raw_registery': value['whois_raw_registery'],
     };
 }
 

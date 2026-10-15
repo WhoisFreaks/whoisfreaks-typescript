@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * WhoisFreaks API
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -44,7 +44,6 @@ export interface BulkWhoisOperationRequest {
 
 export interface WhoisHistoryRequest {
     domainName: string;
-    page?: number;
     format?: WhoisHistoryFormatEnum;
 }
 
@@ -84,10 +83,9 @@ export interface WHOISApiInterface {
     bulkWhois(requestParameters: BulkWhoisOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<BulkWhoisResponse>;
 
     /**
-     * 
+     * Every WHOIS record captured for the domain since 1986, in one response (no pagination). Cost 2 credits.
      * @summary Historical WHOIS records for a domain
      * @param {string} domainName Domain to fetch historical WHOIS records for
-     * @param {number} [page] Page number
      * @param {'json' | 'xml'} [format] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -96,6 +94,7 @@ export interface WHOISApiInterface {
     whoisHistoryRaw(requestParameters: WhoisHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WhoisHistoricalResponse>>;
 
     /**
+     * Every WHOIS record captured for the domain since 1986, in one response (no pagination). Cost 2 credits.
      * Historical WHOIS records for a domain
      */
     whoisHistory(requestParameters: WhoisHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WhoisHistoricalResponse>;
@@ -188,6 +187,7 @@ export class WHOISApi extends runtime.BaseAPI implements WHOISApiInterface {
     }
 
     /**
+     * Every WHOIS record captured for the domain since 1986, in one response (no pagination). Cost 2 credits.
      * Historical WHOIS records for a domain
      */
     async whoisHistoryRaw(requestParameters: WhoisHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<WhoisHistoricalResponse>> {
@@ -202,10 +202,6 @@ export class WHOISApi extends runtime.BaseAPI implements WHOISApiInterface {
 
         if (requestParameters['domainName'] != null) {
             queryParameters['domainName'] = requestParameters['domainName'];
-        }
-
-        if (requestParameters['page'] != null) {
-            queryParameters['page'] = requestParameters['page'];
         }
 
         if (requestParameters['format'] != null) {
@@ -229,6 +225,7 @@ export class WHOISApi extends runtime.BaseAPI implements WHOISApiInterface {
     }
 
     /**
+     * Every WHOIS record captured for the domain since 1986, in one response (no pagination). Cost 2 credits.
      * Historical WHOIS records for a domain
      */
     async whoisHistory(requestParameters: WhoisHistoryRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<WhoisHistoricalResponse> {

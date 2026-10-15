@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * WhoisFreaks API
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -22,7 +22,7 @@ import {
 } from './DnsResponse';
 
 /**
- * Note: 'currenPage' spelling matches the API.
+ * 
  * @export
  * @interface HistoricalDnsResponse
  */
@@ -39,7 +39,7 @@ export interface HistoricalDnsResponse {
      * @type {number}
      * @memberof HistoricalDnsResponse
      */
-    currenPage?: number;
+    currentPage?: number;
     /**
      * 
      * @type {number}
@@ -51,7 +51,7 @@ export interface HistoricalDnsResponse {
      * @type {Array<DnsResponse>}
      * @memberof HistoricalDnsResponse
      */
-    historicalDns?: Array<DnsResponse>;
+    historicalDnsRecords?: Array<DnsResponse>;
 }
 
 /**
@@ -73,9 +73,9 @@ export function HistoricalDnsResponseFromJSONTyped(json: any, ignoreDiscriminato
         
             ...json,
         'totalPages': json['totalPages'] == null ? undefined : json['totalPages'],
-        'currenPage': json['currenPage'] == null ? undefined : json['currenPage'],
+        'currentPage': json['currentPage'] == null ? undefined : json['currentPage'],
         'totalRecords': json['totalRecords'] == null ? undefined : json['totalRecords'],
-        'historicalDns': json['historicalDns'] == null ? undefined : ((json['historicalDns'] as Array<any>).map(DnsResponseFromJSON)),
+        'historicalDnsRecords': json['historicalDnsRecords'] == null ? undefined : ((json['historicalDnsRecords'] as Array<any>).map(DnsResponseFromJSON)),
     };
 }
 
@@ -92,9 +92,9 @@ export function HistoricalDnsResponseToJSONTyped(value?: HistoricalDnsResponse |
         
             ...value,
         'totalPages': value['totalPages'],
-        'currenPage': value['currenPage'],
+        'currentPage': value['currentPage'],
         'totalRecords': value['totalRecords'],
-        'historicalDns': value['historicalDns'] == null ? undefined : ((value['historicalDns'] as Array<any>).map(DnsResponseToJSON)),
+        'historicalDnsRecords': value['historicalDnsRecords'] == null ? undefined : ((value['historicalDnsRecords'] as Array<any>).map(DnsResponseToJSON)),
     };
 }
 

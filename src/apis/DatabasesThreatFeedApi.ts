@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * WhoisFreaks API
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -14,6 +14,13 @@
 
 
 import * as runtime from '../runtime';
+import type {
+  ErrorResponse,
+} from '../models/index';
+import {
+    ErrorResponseFromJSON,
+    ErrorResponseToJSON,
+} from '../models/index';
 
 export interface DownloadThreatFeedMalwareRequest {
     date?: string;
@@ -37,7 +44,7 @@ export interface DatabasesThreatFeedApiInterface {
     /**
      * 
      * @summary Download the daily malware threat feed (CSV)
-     * @param {string} [date] Feed date (yyyy-MM-dd); defaults to latest available
+     * @param {string} [date] Feed date (yyyy-MM-dd); omit for the full dump of the feed
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DatabasesThreatFeedApiInterface
@@ -66,7 +73,7 @@ export interface DatabasesThreatFeedApiInterface {
     /**
      * 
      * @summary Download the daily phishing threat feed (CSV)
-     * @param {string} [date] Feed date (yyyy-MM-dd); defaults to latest available
+     * @param {string} [date] Feed date (yyyy-MM-dd); omit for the full dump of the feed
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DatabasesThreatFeedApiInterface
@@ -95,7 +102,7 @@ export interface DatabasesThreatFeedApiInterface {
     /**
      * 
      * @summary Download the daily spam threat feed (CSV)
-     * @param {string} [date] Feed date (yyyy-MM-dd); defaults to latest available
+     * @param {string} [date] Feed date (yyyy-MM-dd); omit for the full dump of the feed
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DatabasesThreatFeedApiInterface
@@ -149,6 +156,7 @@ export class DatabasesThreatFeedApi extends runtime.BaseAPI implements Databases
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
+            basePath: 'https://files.whoisfreaks.com',
         }, initOverrides);
 
         return new runtime.BlobApiResponse(response);
@@ -179,6 +187,7 @@ export class DatabasesThreatFeedApi extends runtime.BaseAPI implements Databases
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
+            basePath: 'https://files.whoisfreaks.com',
         }, initOverrides);
 
         return new runtime.BlobApiResponse(response);
@@ -213,6 +222,7 @@ export class DatabasesThreatFeedApi extends runtime.BaseAPI implements Databases
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
+            basePath: 'https://files.whoisfreaks.com',
         }, initOverrides);
 
         return new runtime.BlobApiResponse(response);
@@ -243,6 +253,7 @@ export class DatabasesThreatFeedApi extends runtime.BaseAPI implements Databases
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
+            basePath: 'https://files.whoisfreaks.com',
         }, initOverrides);
 
         return new runtime.BlobApiResponse(response);
@@ -277,6 +288,7 @@ export class DatabasesThreatFeedApi extends runtime.BaseAPI implements Databases
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
+            basePath: 'https://files.whoisfreaks.com',
         }, initOverrides);
 
         return new runtime.BlobApiResponse(response);
@@ -307,6 +319,7 @@ export class DatabasesThreatFeedApi extends runtime.BaseAPI implements Databases
             method: 'GET',
             headers: headerParameters,
             query: queryParameters,
+            basePath: 'https://files.whoisfreaks.com',
         }, initOverrides);
 
         return new runtime.BlobApiResponse(response);

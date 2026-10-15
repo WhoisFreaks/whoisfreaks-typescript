@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * WhoisFreaks API
- * Complete WhoisFreaks API — WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
+ * Complete WhoisFreaks API: WHOIS, DNS, SSL, Geolocation, Typosquatting, IP Intelligence, Domain Reputation, and bulk database downloads.  ## Authentication All requests require an `apiKey` query parameter.  ## Resources - Docs: https://whoisfreaks.com/documentation - Billing: https://billing.whoisfreaks.com - Support: support@whoisfreaks.com 
  *
  * The version of the OpenAPI document: 1.0.0
  * Contact: support@whoisfreaks.com
@@ -22,7 +22,7 @@ import {
 } from './WhoisHistoricalItem';
 
 /**
- * Reverse WHOIS response. Pagination keys are capitalized (Total_Result/Total_Pages/Current_Page) as returned by the API.
+ * Reverse WHOIS response. Pagination keys (total_Result, total_Pages, current_Page) are spelled as the API returns them.
  * @export
  * @interface ReverseWhoisResponse
  */
@@ -33,19 +33,19 @@ export interface ReverseWhoisResponse {
      * @type {number}
      * @memberof ReverseWhoisResponse
      */
-    Total_Result?: number;
+    total_Result?: number;
     /**
      * 
      * @type {number}
      * @memberof ReverseWhoisResponse
      */
-    Total_Pages?: number;
+    total_Pages?: number;
     /**
      * 
      * @type {number}
      * @memberof ReverseWhoisResponse
      */
-    Current_Page?: number;
+    current_Page?: number;
     /**
      * 
      * @type {Array<WhoisHistoricalItem>}
@@ -72,9 +72,9 @@ export function ReverseWhoisResponseFromJSONTyped(json: any, ignoreDiscriminator
     return {
         
             ...json,
-        'Total_Result': json['Total_Result'] == null ? undefined : json['Total_Result'],
-        'Total_Pages': json['Total_Pages'] == null ? undefined : json['Total_Pages'],
-        'Current_Page': json['Current_Page'] == null ? undefined : json['Current_Page'],
+        'total_Result': json['total_Result'] == null ? undefined : json['total_Result'],
+        'total_Pages': json['total_Pages'] == null ? undefined : json['total_Pages'],
+        'current_Page': json['current_Page'] == null ? undefined : json['current_Page'],
         'whois_domains_historical': json['whois_domains_historical'] == null ? undefined : ((json['whois_domains_historical'] as Array<any>).map(WhoisHistoricalItemFromJSON)),
     };
 }
@@ -91,9 +91,9 @@ export function ReverseWhoisResponseToJSONTyped(value?: ReverseWhoisResponse | n
     return {
         
             ...value,
-        'Total_Result': value['Total_Result'],
-        'Total_Pages': value['Total_Pages'],
-        'Current_Page': value['Current_Page'],
+        'total_Result': value['total_Result'],
+        'total_Pages': value['total_Pages'],
+        'current_Page': value['current_Page'],
         'whois_domains_historical': value['whois_domains_historical'] == null ? undefined : ((value['whois_domains_historical'] as Array<any>).map(WhoisHistoricalItemToJSON)),
     };
 }
