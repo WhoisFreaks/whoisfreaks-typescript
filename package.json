@@ -1,6 +1,6 @@
 {
   "name": "whoisfreaks",
-  "version": "0.23.2",
+  "version": "0.24.0",
   "description": "TypeScript WHOIS API client with types: live, historical, reverse and bulk WHOIS, DNS lookup, domain availability, typosquatting",
   "author": "WhoisFreaks <support@whoisfreaks.com>",
   "repository": {
